@@ -1,5 +1,5 @@
 {
-  "name": "sourcebroker/deployer-loader",
+  "name": "digitalerase/deployer-loader",
   "description": "Autoload of vendors and autoload of deployer tasks.",
   "license": "MIT",
   "keywords": [

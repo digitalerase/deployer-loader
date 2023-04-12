@@ -28,7 +28,7 @@ Installation
 ------------
 ::
 
-  composer require sourcebroker/deployer-loader
+  composer require digitalerase/deployer-loader
 
 
 Usage
@@ -44,7 +44,7 @@ The second composer ``vendor/autoload.php`` added by us in ``deploy.php`` has pr
 ``prepend`` parameter of ``spl_autoload_register()`` method which adds an autoloader on the beginning of the autoload
 queue instead of appending it. So classes from our project will be used before classes from Deployer phar.
 
-The solution is to include in ``deploy.php`` the autoload.php from ``sourcebroker/deployer-loader``.
+The solution is to include in ``deploy.php`` the autoload.php from ``digitalerase/deployer-loader``.
 
 Using ``spl_autoload_register()`` it will register new closure function to find classes and it will register itself without
 ``prepend`` parameter. So first classes from Deployer phar autoload will be used and if they will not exists
@@ -54,7 +54,7 @@ How to use it? Just include autoload at the beginning of your ``deploy.php`` (an
 
 ::
 
-  require_once(__DIR__ . '/vendor/sourcebroker/deployer-loader/autoload.php');
+  require_once(__DIR__ . '/vendor/digitalerase/deployer-loader/autoload.php');
 
 
 After this point in code you can use all vendor classes declared in psr4 of your ``composer.json`` files.
@@ -63,7 +63,7 @@ After this point in code you can use all vendor classes declared in psr4 of your
 Loading deployer tasks
 ++++++++++++++++++++++
 
-The package sourcebroker/deployer-loader allows you also to include single files or bunch of files from folder
+The package digitalerase/deployer-loader allows you also to include single files or bunch of files from folder
 (recursively).
 
 - Example for loading single file:
@@ -71,8 +71,8 @@ The package sourcebroker/deployer-loader allows you also to include single files
   ::
 
    new \SourceBroker\DeployerLoader\Load(
-      [path => 'vendor/sourcebroker/deployer-extended-database/deployer/db/task/db:copy.php'],
-      [path => 'vendor/sourcebroker/deployer-extended-database/deployer/db/task/db:move.php'],
+      [path => 'vendor/digitalerase/deployer-extended-database/deployer/db/task/db:copy.php'],
+      [path => 'vendor/digitalerase/deployer-extended-database/deployer/db/task/db:move.php'],
    );
 
 - Example for loading all files from folder recursively:
@@ -81,11 +81,11 @@ The package sourcebroker/deployer-loader allows you also to include single files
 
    new \SourceBroker\DeployerLoader\Load(
       [
-        path => 'vendor/sourcebroker/deployer-extended-database/deployer/db/'
+        path => 'vendor/digitalerase/deployer-extended-database/deployer/db/'
         excludePattern => '/move/'
       ],
       [
-        path => 'vendor/sourcebroker/deployer-extended-media/deployer/media/'
+        path => 'vendor/digitalerase/deployer-extended-media/deployer/media/'
       ],
    );
 
@@ -95,4 +95,4 @@ The package sourcebroker/deployer-loader allows you also to include single files
 Changelog
 ---------
 
-See https://github.com/sourcebroker/deployer-loader/blob/master/CHANGELOG.rst
+See https://github.com/digitalerase/deployer-loader/blob/master/CHANGELOG.rst
